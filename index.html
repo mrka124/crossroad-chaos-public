@@ -1,29 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crossroad Chaos - Control the Traffic Chaos | iOS Game</title>
-
-  <meta name="description"
-    content="Crossroad Chaos is an immersive real-time traffic management game featuring a gorgeous 2D isometric low-poly art style. Control lights, prevent gridlocks, and guide emergency vehicles!">
-  <meta name="keywords"
-    content="crossroad chaos, traffic game, low poly, isometric, godot game, ios game, traffic management">
-
+  
+  <meta name="description" content="Crossroad Chaos is an immersive real-time traffic management game featuring a gorgeous 2D isometric low-poly art style. Control lights, prevent gridlocks, and guide emergency vehicles!">
+  <meta name="keywords" content="crossroad chaos, traffic game, low poly, isometric, godot game, ios game, traffic management">
+  
   <!-- Open Graph -->
   <meta property="og:title" content="Crossroad Chaos - Control the Traffic Chaos">
-  <meta property="og:description"
-    content="Become a professional traffic coordinator in this premium 2D isometric low-poly simulation game for iOS.">
-  <meta property="og:image" content="store_photos/store_1.jpeg">
+  <meta property="og:description" content="Become a professional traffic coordinator in this premium 2D isometric low-poly simulation game for iOS.">
+  <meta property="og:image" content="store_photos/store_1.PNG">
   <meta property="og:type" content="website">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Outfit:wght@300;400;600;800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
     /* Design Tokens & CSS Variables */
@@ -70,10 +64,7 @@
       position: relative;
     }
 
-    h1,
-    h2,
-    h3,
-    .logo {
+    h1, h2, h3, .logo {
       font-family: 'Orbitron', sans-serif;
       font-weight: 700;
     }
@@ -299,14 +290,14 @@
       animation: float-bob 6s ease-in-out infinite;
       user-select: none;
     }
-
+    
     .floating-bg.balloon {
       left: 6%;
       top: 15%;
       width: 130px;
       animation-duration: 8s;
     }
-
+    
     .floating-bg.cloud-l {
       left: 4%;
       top: 45%;
@@ -314,7 +305,7 @@
       animation-duration: 11s;
       opacity: 0.65;
     }
-
+    
     .floating-bg.cloud-r {
       right: 5%;
       top: 10%;
@@ -322,38 +313,31 @@
       animation-duration: 10s;
       opacity: 0.65;
     }
-
+    
     .floating-bg.airplane {
       right: 7%;
       top: 42%;
       width: 150px;
       animation-duration: 7s;
     }
-
+    
     .floating-bg.helicopter {
       left: 5%;
       top: 65%;
       width: 120px;
       animation-duration: 6s;
     }
-
+    
     .floating-bg.birds {
       right: 6%;
       top: 68%;
       width: 100px;
       animation-duration: 9s;
     }
-
+    
     @keyframes float-bob {
-
-      0%,
-      100% {
-        transform: translateY(0) rotate(0deg);
-      }
-
-      50% {
-        transform: translateY(-20px) rotate(2deg);
-      }
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
     }
 
     /* Sections Shared Styles */
@@ -469,12 +453,6 @@
       z-index: 2;
     }
 
-    .gallery-carousel-container {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-    }
-
     .gallery-carousel {
       display: flex;
       transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -483,21 +461,22 @@
     .carousel-slide {
       min-width: 100%;
       position: relative;
-      aspect-ratio: 16/9;
+      aspect-ratio: 2532 / 1170;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      background: #050914;
     }
 
     .carousel-slide img {
       position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      object-fit: contain;
       transition: transform 0.5s ease;
     }
 
@@ -507,7 +486,7 @@
       left: 0;
       width: 100%;
       padding: 40px 5%;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
       color: white;
       display: flex;
       flex-direction: column;
@@ -531,75 +510,55 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(15, 23, 42, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      color: rgba(255, 255, 255, 0.9);
-      width: 48px;
-      height: 48px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: white;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 10;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
     }
 
     .carousel-nav-btn:hover {
-      background: var(--accent-color);
-      color: #fff;
-      border-color: var(--accent-color);
+      background: rgba(255, 255, 255, 0.4);
       transform: translateY(-50%) scale(1.1);
-      box-shadow: 0 8px 20px var(--glow-color);
     }
 
-    .carousel-nav-btn:active {
-      transform: translateY(-50%) scale(0.95);
-    }
-
-    .carousel-nav-btn.prev {
-      left: 20px;
-    }
-
-    .carousel-nav-btn.next {
-      right: 20px;
-    }
+    .carousel-nav-btn.prev { left: 20px; }
+    .carousel-nav-btn.next { right: 20px; }
 
     .carousel-dots {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 10px;
-      padding: 16px 0;
-      background-color: var(--bg-secondary);
-      border-top: 1px solid var(--card-border);
+      gap: 12px;
       margin-top: 0;
+      padding: 16px 0 18px;
+      background: rgba(5, 9, 20, 0.34);
     }
 
     .carousel-dot {
-      width: 8px;
-      height: 8px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
-      background-color: var(--text-secondary);
-      opacity: 0.3;
+      background-color: var(--card-border);
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .carousel-dot:hover {
-      opacity: 0.7;
-      transform: scale(1.2);
+      transition: all 0.3s ease;
+      border: 0;
+      padding: 0;
     }
 
     .carousel-dot.active {
-      width: 24px;
-      height: 8px;
-      border-radius: 4px;
+      width: 42px;
+      border-radius: 999px;
       background-color: var(--accent-color);
-      opacity: 1;
     }
 
     /* Footer Styles */
@@ -687,20 +646,16 @@
       .hero-title {
         font-size: 2.8rem;
       }
-
       .nav-links {
         display: none;
       }
-
       .floating-bg {
-        display: none;
-        /* Hide floating elements on mobile for clean screen spacing */
+        display: none; /* Hide floating elements on mobile for clean screen spacing */
       }
     }
   </style>
 </head>
-
-<body data-theme="dark">
+<body data-theme="night">
 
   <!-- Navigation Bar -->
   <nav class="navbar">
@@ -708,29 +663,20 @@
       <img src="icon_1024.png" class="logo-icon" alt="Crossroad Chaos Logo">
       <span class="logo-text">CROSSROAD CHAOS</span>
     </div>
-
+    
     <ul class="nav-links">
       <li><a href="#features">Features</a></li>
       <li><a href="#gallery">Gallery</a></li>
     </ul>
 
     <div class="nav-right">
-      <button class="theme-toggle-btn" id="theme-btn" title="Toggle Day/Night Mode">
+      <button class="theme-toggle-btn" id="theme-btn" type="button" title="Toggle Day/Night Mode" aria-label="Toggle day or night theme">
         <!-- Sun icon -->
-        <svg id="sun-icon" style="display:none;" width="20" height="20" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="4" />
-          <path
-            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-        </svg>
+        <svg id="sun-icon" style="display:none;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
         <!-- Moon icon -->
-        <svg id="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-        </svg>
+        <svg id="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
       </button>
-      <a href="https://apps.apple.com/us/app/crossroad-chaos/id6762072095" target="_blank" rel="noopener noreferrer"
-        class="btn-play-header">Download</a>
+      <a href="https://apps.apple.com/us/app/crossroad-chaos/id6762072095" target="_blank" rel="noopener noreferrer" class="btn-play-header">Download</a>
     </div>
   </nav>
 
@@ -744,25 +690,17 @@
 
     <div class="hero-content">
       <div class="game-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M12 6v6l4 2" />
-        </svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         Now Available on iOS
       </div>
       <h1 class="hero-title">Order in Chaos</h1>
       <p class="hero-tagline">
-        A bustling intersection, weaving vehicles, and you are the only coordinator holding the line. Keep the traffic
-        flowing safely!
+        A bustling intersection, weaving vehicles, and you are the only coordinator holding the line. Keep the traffic flowing safely!
       </p>
-
+      
       <div class="hero-cta">
-        <a href="https://apps.apple.com/us/app/crossroad-chaos/id6762072095" target="_blank" rel="noopener noreferrer"
-          class="btn btn-primary">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M18.71,19.5C17.88,20.74,17,21.95,15.66,22c-1.34,.05-1.77-.77-3.29-.77-1.53,0-2,.75-3.27,.8-1.31,.05-2.3-1.32-3.14-2.53C4.25,17,2.94,12.45,4.7,9.39c.87-1.52,2.43-2.48,4.12-2.51,1.28-.02,2.5,.87,3.29,.87,.78,0,2.26-1.07,3.81-.91,1.66,.07,3.02,.72,3.92,1.84a6.79,6.79,0,0,0-3.32,5.76c.02,4,3.25,5.34,3.28,5.35ZM15.8,5.17A5.23,5.23,0,0,0,17.16,1.4a5.27,5.27,0,0,0-3.53,1.83,5.08,5.08,0,0,0-1.42,3.67,4.35,4.35,0,0,0,3.59-1.73Z" />
-          </svg>
+        <a href="https://apps.apple.com/us/app/crossroad-chaos/id6762072095" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71,19.5C17.88,20.74,17,21.95,15.66,22c-1.34,.05-1.77-.77-3.29-.77-1.53,0-2,.75-3.27,.8-1.31,.05-2.3-1.32-3.14-2.53C4.25,17,2.94,12.45,4.7,9.39c.87-1.52,2.43-2.48,4.12-2.51,1.28-.02,2.5,.87,3.29,.87,.78,0,2.26-1.07,3.81-.91,1.66,.07,3.02,.72,3.92,1.84a6.79,6.79,0,0,0-3.32,5.76c.02,4,3.25,5.34,3.28,5.35ZM15.8,5.17A5.23,5.23,0,0,0,17.16,1.4a5.27,5.27,0,0,0-3.53,1.83,5.08,5.08,0,0,0-1.42,3.67,4.35,4.35,0,0,0,3.59-1.73Z"/></svg>
           Download on the App Store
         </a>
       </div>
@@ -785,14 +723,11 @@
       <div class="feature-card">
         <div class="feature-icon-wrapper">
           <!-- Shield/Police Icon -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-          </svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <h3>Vehicles & Priorities</h3>
-        <p>Manage three distinct tiers of traffic, each with unique travel velocities, warning sirens, and paths to test
-          your scheduling timing.</p>
-
+        <p>Manage three distinct tiers of traffic, each with unique travel velocities, warning sirens, and paths to test your scheduling timing.</p>
+        
         <div class="feature-details">
           <div class="detail-item">
             <span class="label">Civilian Vehicles</span>
@@ -813,15 +748,11 @@
       <div class="feature-card">
         <div class="feature-icon-wrapper">
           <!-- Alert Triangle Icon -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path
-              d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01" />
-          </svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01"/></svg>
         </div>
         <h3>Collisions & Penalties</h3>
-        <p>Accidents disrupt operations immediately. Drivers waiting too long at red signals lose patience, shaking
-          their cars before points drain away.</p>
-
+        <p>Accidents disrupt operations immediately. Drivers waiting too long at red signals lose patience, shaking their cars before points drain away.</p>
+        
         <div class="feature-details">
           <div class="detail-item">
             <span class="label">Collision Limits</span>
@@ -842,15 +773,11 @@
       <div class="feature-card">
         <div class="feature-icon-wrapper">
           <!-- Cloud Drizzle Icon -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path
-              d="M8 19c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3c.4 0 .76.08 1.1.22a6 6 0 0 1 11.8-2.22A4.5 4.5 0 0 1 22 18.5c0 2.49-2.01 4.5-4.5 4.5a4.5 4.5 0 0 1-3.5-1.63M16 13v6M8 13v6M12 15v6" />
-          </svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 19c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3c.4 0 .76.08 1.1.22a6 6 0 0 1 11.8-2.22A4.5 4.5 0 0 1 22 18.5c0 2.49-2.01 4.5-4.5 4.5a4.5 4.5 0 0 1-3.5-1.63M16 13v6M8 13v6M12 15v6"/></svg>
         </div>
         <h3>Dynamic Environments</h3>
-        <p>Adapt to shift-based Day/Night lighting and severe weather cycles. Road friction conditions actively adjust
-          vehicle handling and transit speeds.</p>
-
+        <p>Adapt to shift-based Day/Night lighting and severe weather cycles. Road friction conditions actively adjust vehicle handling and transit speeds.</p>
+        
         <div class="feature-details">
           <div class="detail-item">
             <span class="label">Rain Conditions</span>
@@ -877,71 +804,48 @@
     </div>
 
     <div class="gallery-carousel-wrapper">
-      <div class="gallery-carousel-container">
-        <button class="carousel-nav-btn prev" onclick="moveCarousel(-1)" aria-label="Previous Slide">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-        <button class="carousel-nav-btn next" onclick="moveCarousel(1)" aria-label="Next Slide">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-
-        <div class="gallery-carousel" id="carousel-track">
-          <!-- Slide 1 -->
-          <div class="carousel-slide">
-            <img src="store_photos/store_1.PNG" alt="Crossroad Chaos Gameplay Screen 1">
-            <div class="carousel-overlay">
-              <span class="carousel-title">Bustling Intersection Flows</span>
-              <span class="carousel-desc">Coordinate civilian vehicle lines seamlessly with styled isometric 3D
-                perspectives.</span>
-            </div>
+      <button class="carousel-nav-btn prev" type="button" onclick="moveCarousel(-1)" aria-label="Previous screenshot">&lt;</button>
+      <button class="carousel-nav-btn next" type="button" onclick="moveCarousel(1)" aria-label="Next screenshot">&gt;</button>
+      
+      <div class="gallery-carousel" id="carousel-track">
+        <!-- Slide 1 -->
+        <div class="carousel-slide">
+          <img src="store_photos/store_1.PNG" alt="Crossroad Chaos gameplay screenshot showing a busy intersection">
+          <div class="carousel-overlay">
+            <span class="carousel-title">Bustling Intersection Flows</span>
+            <span class="carousel-desc">Coordinate civilian vehicle lines seamlessly with styled isometric 3D perspectives.</span>
           </div>
-          <!-- Slide 2 -->
-          <div class="carousel-slide">
-            <img src="store_photos/store_2.PNG" alt="Crossroad Chaos Gameplay Screen 2">
-            <div class="carousel-overlay">
-              <span class="carousel-title">Dynamic Day/Night Lighting</span>
-              <span class="carousel-desc">Vehicles automatically engage headlights at dusk alongside glowing neon light
-                stems.</span>
-            </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+          <img src="store_photos/store_2.PNG" alt="Crossroad Chaos gameplay screenshot with day and night traffic lighting">
+          <div class="carousel-overlay">
+            <span class="carousel-title">Dynamic Day/Night Lighting</span>
+            <span class="carousel-desc">Vehicles automatically engage headlights at dusk alongside glowing neon light stems.</span>
           </div>
-          <!-- Slide 3 -->
-          <div class="carousel-slide">
-            <img src="store_photos/store_3.PNG" alt="Crossroad Chaos Gameplay Screen 3">
-            <div class="carousel-overlay">
-              <span class="carousel-title">Rainy Climate Interruptions</span>
-              <span class="carousel-desc">Wet asphalt degrades traction speed by 25% with realistic spray details.</span>
-            </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+          <img src="store_photos/store_3.PNG" alt="Crossroad Chaos gameplay screenshot during rainy weather">
+          <div class="carousel-overlay">
+            <span class="carousel-title">Rainy Climate Interruptions</span>
+            <span class="carousel-desc">Wet asphalt degrades traction speed by 25% with realistic spray details.</span>
           </div>
-          <!-- Slide 4 -->
-          <div class="carousel-slide">
-            <img src="store_photos/store_4.PNG" alt="Crossroad Chaos Gameplay Screen 4">
-            <div class="carousel-overlay">
-              <span class="carousel-title">Emergency Signals Active</span>
-              <span class="carousel-desc">Flashing alert bars warn you to clear paths ahead of emergency priority
-                lanes.</span>
-            </div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="carousel-slide">
+          <img src="store_photos/store_4.PNG" alt="Crossroad Chaos gameplay screenshot with emergency vehicles">
+          <div class="carousel-overlay">
+            <span class="carousel-title">Emergency Signals Active</span>
+            <span class="carousel-desc">Flashing alert bars warn you to clear paths ahead of emergency priority lanes.</span>
           </div>
-          <!-- Slide 5 -->
-          <div class="carousel-slide">
-            <img src="store_photos/store_5.PNG" alt="Crossroad Chaos Gameplay Screen 5">
-            <div class="carousel-overlay">
-              <span class="carousel-title">VIP Protection Routes</span>
-              <span class="carousel-desc">Shield the escorted VIP limousine convoys from civilian vehicle cut-in
-                penalties.</span>
-            </div>
-          </div>
-          <!-- Slide 6 -->
-          <div class="carousel-slide">
-            <img src="store_photos/store_6.jpeg" alt="Crossroad Chaos Gameplay Screen 6">
-            <div class="carousel-overlay">
-              <span class="carousel-title">Customizable Config Details</span>
-              <span class="carousel-desc">Tweak crash values, waiting thresholds, and weather factors in resource
-                structures.</span>
-            </div>
+        </div>
+        <!-- Slide 5 -->
+        <div class="carousel-slide">
+          <img src="store_photos/store_5.PNG" alt="Crossroad Chaos gameplay screenshot with VIP convoy routes">
+          <div class="carousel-overlay">
+            <span class="carousel-title">VIP Protection Routes</span>
+            <span class="carousel-desc">Shield the escorted VIP limousine convoys from civilian vehicle cut-in penalties.</span>
           </div>
         </div>
       </div>
@@ -951,26 +855,20 @@
   </section>
 
   <!-- Download Call-to-action Section -->
-  <section class="download-section" id="download"
-    style="text-align: center; background-color: var(--bg-secondary); border-top: 1px solid var(--card-border); padding: 100px 5%;">
-    <div
-      style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; align-items: center;">
+  <section class="download-section" id="download" style="text-align: center; background-color: var(--bg-secondary); border-top: 1px solid var(--card-border); padding: 100px 5%;">
+    <div style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; align-items: center;">
       <h2 style="font-size: 2.5rem; font-family: 'Orbitron';">READY FOR THE CHAOS?</h2>
       <p style="color: var(--text-secondary); font-size: 1.1rem;">
         Get Crossroad Chaos on your Apple device today and test your reflexes under pressure.
       </p>
-
+      
       <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px;">
-        <a href="https://apps.apple.com/us/app/crossroad-chaos/id6762072095" target="_blank" rel="noopener noreferrer"
-          class="btn btn-primary" style="padding: 16px 36px; border-radius: 40px; font-size: 1.1rem;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="margin-right:5px;">
-            <path
-              d="M18.71,19.5C17.88,20.74,17,21.95,15.66,22c-1.34,.05-1.77-.77-3.29-.77-1.53,0-2,.75-3.27,.8-1.31,.05-2.3-1.32-3.14-2.53C4.25,17,2.94,12.45,4.7,9.39c.87-1.52,2.43-2.48,4.12-2.51,1.28-.02,2.5,.87,3.29,.87,.78,0,2.26-1.07,3.81-.91,1.66,.07,3.02,.72,3.92,1.84a6.79,6.79,0,0,0-3.32,5.76c.02,4,3.25,5.34,3.28,5.35ZM15.8,5.17A5.23,5.23,0,0,0,17.16,1.4a5.27,5.27,0,0,0-3.53,1.83,5.08,5.08,0,0,0-1.42,3.67,4.35,4.35,0,0,0,3.59-1.73Z" />
-          </svg>
+        <a href="https://apps.apple.com/us/app/crossroad-chaos/id6762072095" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 16px 36px; border-radius: 40px; font-size: 1.1rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="margin-right:5px;"><path d="M18.71,19.5C17.88,20.74,17,21.95,15.66,22c-1.34,.05-1.77-.77-3.29-.77-1.53,0-2,.75-3.27,.8-1.31,.05-2.3-1.32-3.14-2.53C4.25,17,2.94,12.45,4.7,9.39c.87-1.52,2.43-2.48,4.12-2.51,1.28-.02,2.5,.87,3.29,.87,.78,0,2.26-1.07,3.81-.91,1.66,.07,3.02,.72,3.92,1.84a6.79,6.79,0,0,0-3.32,5.76c.02,4,3.25,5.34,3.28,5.35ZM15.8,5.17A5.23,5.23,0,0,0,17.16,1.4a5.27,5.27,0,0,0-3.53,1.83,5.08,5.08,0,0,0-1.42,3.67,4.35,4.35,0,0,0,3.59-1.73Z"/></svg>
           Download on the App Store
         </a>
       </div>
-
+      
       <span style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 10px;">
         *Supports iOS 15.0 or later. Optimized for iPhone and iPad.
       </span>
@@ -1000,9 +898,8 @@
     <div class="footer-bottom">
       <div>&copy; 2026 GGme Studio. All rights reserved.</div>
       <div>
-        <a href="https://theggme.com/terms.html" style="margin-right: 15px; text-decoration: underline;">Terms of
-          Service</a>
-        <a href="https://theggme.com/privacy.html" style="text-decoration: underline;">Privacy Policy</a>
+        <a href="https://apps.apple.com/us/app/crossroad-chaos/id6762072095" target="_blank" rel="noopener noreferrer" style="margin-right: 15px; text-decoration: underline;">App Store</a>
+        <a href="mailto:support@theggme.com" style="text-decoration: underline;">Contact Support</a>
       </div>
     </div>
   </footer>
@@ -1010,7 +907,7 @@
   <!-- Page Logic -->
   <script>
     // Theme Mode Toggle
-    let themeMode = 'dark';
+    let themeMode = 'night';
     const themeBtn = document.getElementById('theme-btn');
     const sunIcon = document.getElementById('sun-icon');
     const moonIcon = document.getElementById('moon-icon');
@@ -1021,9 +918,9 @@
     });
 
     themeBtn.addEventListener('click', () => {
-      themeMode = themeMode === 'dark' ? 'day' : 'night';
+      themeMode = themeMode === 'night' ? 'day' : 'night';
       document.body.setAttribute('data-theme', themeMode);
-      if (themeMode === 'dark') {
+      if (themeMode === 'night') {
         sunIcon.style.display = 'none';
         moonIcon.style.display = 'block';
       } else {
@@ -1034,15 +931,18 @@
 
     // Carousel Logic
     let currentSlide = 0;
-    const totalSlides = 6;
+    const totalSlides = document.querySelectorAll('.carousel-slide').length;
     const carouselTrack = document.getElementById('carousel-track');
-
+    
     function buildCarouselDots() {
       const dotsContainer = document.getElementById('carousel-dots-container');
       dotsContainer.innerHTML = '';
       for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('div');
+        const dot = document.createElement('button');
+        dot.type = 'button';
         dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+        dot.setAttribute('aria-label', `Show screenshot ${i + 1}`);
+        dot.setAttribute('aria-current', i === 0 ? 'true' : 'false');
         dot.onclick = () => jumpToSlide(i);
         dotsContainer.appendChild(dot);
       }
@@ -1060,18 +960,19 @@
 
     function updateCarouselDOM() {
       carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-
+      
       // Update dots
       const dots = document.querySelectorAll('.carousel-dot');
       dots.forEach((dot, idx) => {
         if (idx === currentSlide) {
           dot.classList.add('active');
+          dot.setAttribute('aria-current', 'true');
         } else {
           dot.classList.remove('active');
+          dot.setAttribute('aria-current', 'false');
         }
       });
     }
   </script>
 </body>
-
 </html>
