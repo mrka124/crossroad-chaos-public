@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crossroad Chaos - Control the Traffic Chaos | iOS Game</title>
+  <title>Crossroad Chaos - Real-Time Traffic Control Game for iOS</title>
   
-  <meta name="description" content="Crossroad Chaos is an immersive real-time traffic management game featuring a gorgeous 2D isometric low-poly art style. Control lights, prevent gridlocks, and guide emergency vehicles!">
-  <meta name="keywords" content="crossroad chaos, traffic game, low poly, isometric, godot game, ios game, traffic management">
+  <meta name="description" content="Crossroad Chaos is a fast-paced traffic control game for iOS. Switch lights, prevent crashes, clear emergency routes, and keep a vibrant low-poly city moving.">
+  <meta name="keywords" content="crossroad chaos, traffic control game, traffic game, low poly, isometric, godot game, ios game, traffic management">
   
   <!-- Open Graph -->
-  <meta property="og:title" content="Crossroad Chaos - Control the Traffic Chaos">
-  <meta property="og:description" content="Become a professional traffic coordinator in this premium 2D isometric low-poly simulation game for iOS.">
+  <meta property="og:title" content="Crossroad Chaos - Keep the City Moving">
+  <meta property="og:description" content="Take command of busy intersections in a stylish real-time traffic control game for iOS.">
   <meta property="og:image" content="store_photos/store_1.PNG">
   <meta property="og:type" content="website">
 
@@ -310,6 +310,14 @@
       width: 130px;
       animation-duration: 8s;
     }
+
+    .floating-bg.balloon-teal {
+      right: 18%;
+      top: 19%;
+      width: 115px;
+      animation-duration: 9s;
+      animation-delay: -2s;
+    }
     
     .floating-bg.cloud-l {
       left: 4%;
@@ -332,6 +340,14 @@
       top: 42%;
       width: 150px;
       animation-duration: 7s;
+    }
+
+    .floating-bg.seaplane {
+      left: 16%;
+      top: 52%;
+      width: 145px;
+      animation-duration: 8.5s;
+      animation-delay: -3s;
     }
     
     .floating-bg.helicopter {
@@ -678,18 +694,18 @@
     </div>
     
     <ul class="nav-links">
-      <li><a href="#features">Features</a></li>
-      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#features">Gameplay</a></li>
+      <li><a href="#gallery">Screenshots</a></li>
     </ul>
 
     <div class="nav-right">
-      <button class="theme-toggle-btn" id="theme-btn" type="button" title="Toggle Day/Night Mode" aria-label="Toggle day or night theme">
+      <button class="theme-toggle-btn" id="theme-btn" type="button" title="Switch Day/Night Mode" aria-label="Switch day or night theme">
         <!-- Sun icon -->
         <svg id="sun-icon" style="display:none;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
         <!-- Moon icon -->
         <svg id="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
       </button>
-      <a href="https://apps.apple.com/us/app/crossroad-chaos/id6762072095" target="_blank" rel="noopener noreferrer" class="btn-play-header">Download</a>
+      <a href="https://apps.apple.com/us/app/crossroad-chaos/id6762072095" target="_blank" rel="noopener noreferrer" class="btn-play-header">Get the Game</a>
     </div>
   </nav>
 
@@ -697,18 +713,20 @@
   <section class="hero" id="hero">
     <!-- Floating Low-Poly Weather / Sky Elements -->
     <img src="assets/weather/balloon_lowpoly.png" class="floating-bg balloon" alt="Floating Balloon">
+    <img src="assets/weather/balloon_lowpoly_teal.png" class="floating-bg balloon-teal" alt="Teal Floating Balloon">
     <img src="assets/weather/cloud_lowpoly.png" class="floating-bg cloud-l" alt="Floating Cloud Left">
     <img src="assets/weather/cloud_lowpoly.png" class="floating-bg cloud-r" alt="Floating Cloud Right">
     <img src="assets/weather/airplane_lowpoly_red.png" class="floating-bg airplane" alt="Floating Airplane">
+    <img src="assets/weather/seaplane_lowpoly.png" class="floating-bg seaplane" alt="Floating Seaplane">
 
     <div class="hero-content">
       <div class="game-badge">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        Now Available on iOS and Web
+        Available Now on iOS and Web
       </div>
-      <h1 class="hero-title">Order in Chaos</h1>
+      <h1 class="hero-title">Crossroad Chaos</h1>
       <p class="hero-tagline">
-        A bustling intersection, weaving vehicles, and you are the only coordinator holding the line. Keep the traffic flowing safely!
+        Take command of a living intersection where every light matters. Time your signals, clear urgent routes, and keep the city moving before chaos takes over.
       </p>
       
       <div class="hero-cta">
@@ -716,7 +734,7 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71,19.5C17.88,20.74,17,21.95,15.66,22c-1.34,.05-1.77-.77-3.29-.77-1.53,0-2,.75-3.27,.8-1.31,.05-2.3-1.32-3.14-2.53C4.25,17,2.94,12.45,4.7,9.39c.87-1.52,2.43-2.48,4.12-2.51,1.28-.02,2.5,.87,3.29,.87,.78,0,2.26-1.07,3.81-.91,1.66,.07,3.02,.72,3.92,1.84a6.79,6.79,0,0,0-3.32,5.76c.02,4,3.25,5.34,3.28,5.35ZM15.8,5.17A5.23,5.23,0,0,0,17.16,1.4a5.27,5.27,0,0,0-3.53,1.83,5.08,5.08,0,0,0-1.42,3.67,4.35,4.35,0,0,0,3.59-1.73Z"/></svg>
           Download on the App Store
         </a>
-        <a href="game/crossroad-chaos.html" rel="noopener noreferrer" class="btn play-now-btn">
+        <a href="builds/web/crossroad-chaos.html" rel="noopener noreferrer" class="btn play-now-btn">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.93 8zM12 4.04c.83 1.2 1.5 2.54 1.96 3.96h-3.92c.46-1.42 1.13-2.76 1.96-3.96zM4.26 14a7.9 7.9 0 0 1 0-4h3.08A16.9 16.9 0 0 0 7.2 12c0 .68.05 1.35.14 2H4.26zm.81 2h2.95c.34 1.25.82 2.45 1.38 3.56A8.03 8.03 0 0 1 5.07 16zM12 19.96A14.1 14.1 0 0 1 10.04 16h3.92A14.1 14.1 0 0 1 12 19.96zM14.4 19.56c.56-1.11 1.04-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56zM16.66 14H7.34A14.9 14.9 0 0 1 7.2 12c0-.68.05-1.35.14-2h9.32c.09.65.14 1.32.14 2 0 .68-.05 1.35-.14 2z"/></svg>
           Play Now
         </a>
@@ -731,8 +749,8 @@
     <img src="assets/weather/birds_lowpoly.png" class="floating-bg birds" alt="Flock of Birds">
 
     <div class="section-title-wrapper">
-      <span class="section-subtitle">Stunning Experience</span>
-      <h2 class="section-title">Core Gameplay Mechanics</h2>
+      <span class="section-subtitle">Fast, Focused, Tactical</span>
+      <h2 class="section-title">Built for Split-Second Decisions</h2>
     </div>
 
     <div class="features-grid">
@@ -742,21 +760,21 @@
           <!-- Shield/Police Icon -->
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <h3>Vehicles & Priorities</h3>
-        <p>Manage three distinct tiers of traffic, each with unique travel velocities, warning sirens, and paths to test your scheduling timing.</p>
+        <h3>Traffic Priorities</h3>
+        <p>Balance everyday traffic with urgent vehicles and protected convoys. Each lane, route, and siren asks for a different kind of timing.</p>
         
         <div class="feature-details">
           <div class="detail-item">
-            <span class="label">Civilian Vehicles</span>
-            <span class="value">Cars, Taxis, Trucks...</span>
+            <span class="label">City Traffic</span>
+            <span class="value">Cars, taxis, trucks</span>
           </div>
           <div class="detail-item">
-            <span class="label">Priority Vehicles</span>
-            <span class="value">Ambulance & Police (Siren warning)</span>
+            <span class="label">Emergency Routes</span>
+            <span class="value">Ambulance and police</span>
           </div>
           <div class="detail-item">
-            <span class="label">VIP Escort Convoy</span>
-            <span class="value">Strict Police - Limo convoy alignments</span>
+            <span class="label">VIP Convoys</span>
+            <span class="value">Escorted limo routes</span>
           </div>
         </div>
       </div>
@@ -767,21 +785,21 @@
           <!-- Alert Triangle Icon -->
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01"/></svg>
         </div>
-        <h3>Collisions & Penalties</h3>
-        <p>Accidents disrupt operations immediately. Drivers waiting too long at red signals lose patience, shaking their cars before points drain away.</p>
+        <h3>Risk & Pressure</h3>
+        <p>Every mistake has momentum. Crashes cost lives, long queues drain points, and impatient drivers make the intersection harder to control.</p>
         
         <div class="feature-details">
           <div class="detail-item">
-            <span class="label">Collision Limits</span>
-            <span class="value">Max 3 lives (Crash Count limit)</span>
+            <span class="label">Crash Limit</span>
+            <span class="value">3 lives per run</span>
           </div>
           <div class="detail-item">
-            <span class="label">Stun Cooldown</span>
-            <span class="value">1.5 - 2.5s delay recovery post-crash</span>
+            <span class="label">Recovery Delay</span>
+            <span class="value">1.5 - 2.5s after impact</span>
           </div>
           <div class="detail-item">
-            <span class="label">Impatient Shake</span>
-            <span class="value">Vibrations trigger if waiting > 2 cycles</span>
+            <span class="label">Queue Pressure</span>
+            <span class="value">Drivers react after 2 cycles</span>
           </div>
         </div>
       </div>
@@ -792,21 +810,21 @@
           <!-- Cloud Drizzle Icon -->
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 19c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3c.4 0 .76.08 1.1.22a6 6 0 0 1 11.8-2.22A4.5 4.5 0 0 1 22 18.5c0 2.49-2.01 4.5-4.5 4.5a4.5 4.5 0 0 1-3.5-1.63M16 13v6M8 13v6M12 15v6"/></svg>
         </div>
-        <h3>Dynamic Environments</h3>
-        <p>Adapt to shift-based Day/Night lighting and severe weather cycles. Road friction conditions actively adjust vehicle handling and transit speeds.</p>
+        <h3>Changing Conditions</h3>
+        <p>Weather and time of day change how the road feels. Rain, snow, headlights, and light beacons all reshape your rhythm mid-run.</p>
         
         <div class="feature-details">
           <div class="detail-item">
-            <span class="label">Rain Conditions</span>
-            <span class="value">-25% speed drops, tire spray effects</span>
+            <span class="label">Rain</span>
+            <span class="value">Slower roads, tire spray</span>
           </div>
           <div class="detail-item">
-            <span class="label">Snow Conditions</span>
-            <span class="value">-20% to -35% speeds, drifting snow flurries</span>
+            <span class="label">Snow</span>
+            <span class="value">Reduced speed, drifting flurries</span>
           </div>
           <div class="detail-item">
-            <span class="label">Day & Night Cycles</span>
-            <span class="value">Auto headlights, glowing light beacons</span>
+            <span class="label">Day & Night</span>
+            <span class="value">Headlights and glowing signals</span>
           </div>
         </div>
       </div>
@@ -817,52 +835,52 @@
   <section class="gallery" id="gallery">
     <div class="section-title-wrapper">
       <span class="section-subtitle">Screenshot Gallery</span>
-      <h2 class="section-title">In-Game Action Screenshots</h2>
+      <h2 class="section-title">A Closer Look at the Intersection</h2>
     </div>
 
     <div class="gallery-carousel-wrapper">
-      <button class="carousel-nav-btn prev" type="button" onclick="moveCarousel(-1)" aria-label="Previous screenshot">&lt;</button>
-      <button class="carousel-nav-btn next" type="button" onclick="moveCarousel(1)" aria-label="Next screenshot">&gt;</button>
+      <button class="carousel-nav-btn prev" type="button" onclick="moveCarousel(-1)" aria-label="Previous game screenshot">&lt;</button>
+      <button class="carousel-nav-btn next" type="button" onclick="moveCarousel(1)" aria-label="Next game screenshot">&gt;</button>
       
       <div class="gallery-carousel" id="carousel-track">
         <!-- Slide 1 -->
         <div class="carousel-slide">
           <img src="store_photos/store_1.PNG" alt="Crossroad Chaos gameplay screenshot showing a busy intersection">
           <div class="carousel-overlay">
-            <span class="carousel-title">Bustling Intersection Flows</span>
-            <span class="carousel-desc">Coordinate civilian vehicle lines seamlessly with styled isometric 3D perspectives.</span>
+            <span class="carousel-title">Busy Streets, Clean Decisions</span>
+            <span class="carousel-desc">Guide crossing lanes through a colorful low-poly city without letting the gridlock build.</span>
           </div>
         </div>
         <!-- Slide 2 -->
         <div class="carousel-slide">
           <img src="store_photos/store_2.PNG" alt="Crossroad Chaos gameplay screenshot with day and night traffic lighting">
           <div class="carousel-overlay">
-            <span class="carousel-title">Dynamic Day/Night Lighting</span>
-            <span class="carousel-desc">Vehicles automatically engage headlights at dusk alongside glowing neon light stems.</span>
+            <span class="carousel-title">Day Turns Into Night</span>
+            <span class="carousel-desc">Watch headlights and glowing signals reshape the road as the pace keeps rising.</span>
           </div>
         </div>
         <!-- Slide 3 -->
         <div class="carousel-slide">
           <img src="store_photos/store_3.PNG" alt="Crossroad Chaos gameplay screenshot during rainy weather">
           <div class="carousel-overlay">
-            <span class="carousel-title">Rainy Climate Interruptions</span>
-            <span class="carousel-desc">Wet asphalt degrades traction speed by 25% with realistic spray details.</span>
+            <span class="carousel-title">Weather Changes the Flow</span>
+            <span class="carousel-desc">Rain slows the streets and adds extra pressure to every signal switch.</span>
           </div>
         </div>
         <!-- Slide 4 -->
         <div class="carousel-slide">
           <img src="store_photos/store_4.PNG" alt="Crossroad Chaos gameplay screenshot with emergency vehicles">
           <div class="carousel-overlay">
-            <span class="carousel-title">Emergency Signals Active</span>
-            <span class="carousel-desc">Flashing alert bars warn you to clear paths ahead of emergency priority lanes.</span>
+            <span class="carousel-title">Clear the Emergency Lane</span>
+            <span class="carousel-desc">React to sirens fast and open a clean route before priority vehicles reach the junction.</span>
           </div>
         </div>
         <!-- Slide 5 -->
         <div class="carousel-slide">
           <img src="store_photos/store_5.PNG" alt="Crossroad Chaos gameplay screenshot with VIP convoy routes">
           <div class="carousel-overlay">
-            <span class="carousel-title">VIP Protection Routes</span>
-            <span class="carousel-desc">Shield the escorted VIP limousine convoys from civilian vehicle cut-in penalties.</span>
+            <span class="carousel-title">Protect the Convoy</span>
+            <span class="carousel-desc">Hold back traffic and keep escorted VIP routes moving through tight openings.</span>
           </div>
         </div>
       </div>
@@ -874,9 +892,9 @@
   <!-- Download Call-to-action Section -->
   <section class="download-section" id="download" style="text-align: center; background-color: var(--bg-secondary); border-top: 1px solid var(--card-border); padding: 100px 5%;">
     <div style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; align-items: center;">
-      <h2 style="font-size: 2.5rem;">READY FOR THE CHAOS?</h2>
+      <h2 style="font-size: 2.5rem; font-family: 'Orbitron';">READY TO TAKE CONTROL?</h2>
       <p style="color: var(--text-secondary); font-size: 1.1rem;">
-        Get Crossroad Chaos on your Apple device today and test your reflexes under pressure.
+        Download Crossroad Chaos on your Apple device and prove you can keep the busiest roads under control.
       </p>
       
       <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px;">
@@ -887,7 +905,7 @@
       </div>
       
       <span style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 10px;">
-        *Supports iOS 15.0 or later. Optimized for iPhone and iPad.
+        Supports iOS 15.0 or later. Optimized for iPhone and iPad.
       </span>
     </div>
   </section>
@@ -900,14 +918,23 @@
           <img src="icon_1024.png" class="logo-icon" alt="Crossroad Chaos Logo">
           <span class="logo-text">CROSSROAD CHAOS</span>
         </div>
-        <p>A premium real-time traffic coordination and simulation puzzle game built using the Godot Engine.</p>
+        <p>A real-time traffic control puzzle game about timing, pressure, and keeping a beautiful low-poly city in motion.</p>
       </div>
 
       <div class="footer-links-group">
         <h4>Game</h4>
         <ul>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#gallery">Screenshot Gallery</a></li>
+          <li><a href="#features">Gameplay</a></li>
+          <li><a href="#gallery">Screenshots</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="game_support.html">Game Support</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms</a></li>
         </ul>
       </div>
     </div>
@@ -916,7 +943,9 @@
       <div>&copy; 2026 GGme Studio. All rights reserved.</div>
       <div>
         <a href="https://apps.apple.com/us/app/crossroad-chaos/id6762072095" target="_blank" rel="noopener noreferrer" style="margin-right: 15px; text-decoration: underline;">App Store</a>
-        <a href="mailto:support@theggme.com" style="text-decoration: underline;">Contact Support</a>
+        <a href="game_support.html" style="margin-right: 15px; text-decoration: underline;">Support</a>
+        <a href="privacy.html" style="margin-right: 15px; text-decoration: underline;">Privacy</a>
+        <a href="terms.html" style="text-decoration: underline;">Terms</a>
       </div>
     </div>
   </footer>
