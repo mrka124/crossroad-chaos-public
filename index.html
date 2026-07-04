@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crossroad Chaos - Real-Time Traffic Control Game for iOS</title>
+  <title>Crossroad Chaos - Real-Time Traffic Control Game for iOS and Android</title>
   
-  <meta name="description" content="Crossroad Chaos is a fast-paced traffic control game for iOS. Switch lights, prevent crashes, clear emergency routes, and keep a vibrant low-poly city moving.">
-  <meta name="keywords" content="crossroad chaos, traffic control game, traffic game, low poly, isometric, godot game, ios game, traffic management">
+  <meta name="description" content="Crossroad Chaos is a fast-paced traffic control game for iOS, Android, and web. Switch lights, prevent crashes, clear emergency routes, and keep a vibrant low-poly city moving.">
+  <meta name="keywords" content="crossroad chaos, traffic control game, traffic game, low poly, isometric, godot game, ios game, android game, traffic management">
   
   <!-- Open Graph -->
   <meta property="og:title" content="Crossroad Chaos - Keep the City Moving">
-  <meta property="og:description" content="Take command of busy intersections in a stylish real-time traffic control game for iOS.">
+  <meta property="og:description" content="Take command of busy intersections in a stylish real-time traffic control game for iOS, Android, and web.">
   <meta property="og:image" content="store_photos/store_1.PNG">
   <meta property="og:type" content="website">
 
@@ -252,6 +252,7 @@
 
     .hero-cta {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       gap: 15px;
       margin-bottom: 20px;
@@ -279,6 +280,17 @@
     .btn-primary:hover {
       transform: translateY(-3px);
       box-shadow: 0 15px 30px var(--glow-color);
+    }
+
+    .btn-android {
+      background: linear-gradient(135deg, #22c55e, #15803d);
+      color: white;
+      box-shadow: 0 10px 25px rgba(34, 197, 94, 0.18);
+    }
+
+    .btn-android:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(34, 197, 94, 0.24);
     }
 
     .play-now-btn {
@@ -682,6 +694,19 @@
         display: none; /* Hide floating elements on mobile for clean screen spacing */
       }
     }
+
+    @media (max-width: 480px) {
+      .hero-cta {
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 320px;
+        padding: 13px 18px;
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
 <body data-theme="night">
@@ -696,6 +721,7 @@
     <ul class="nav-links">
       <li><a href="#features">Gameplay</a></li>
       <li><a href="#gallery">Screenshots</a></li>
+      <li><a href="#download">Download</a></li>
     </ul>
 
     <div class="nav-right">
@@ -705,7 +731,7 @@
         <!-- Moon icon -->
         <svg id="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
       </button>
-      <a href="https://apps.apple.com/us/app/crossroad-chaos/id6762072095" target="_blank" rel="noopener noreferrer" class="btn-play-header">Get the Game</a>
+      <a href="#download" class="btn-play-header">Get the Game</a>
     </div>
   </nav>
 
@@ -722,7 +748,7 @@
     <div class="hero-content">
       <div class="game-badge">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        Available Now on iOS and Web
+        Available Now on iOS, Android, and Web
       </div>
       <h1 class="hero-title">Crossroad Chaos</h1>
       <p class="hero-tagline">
@@ -733,6 +759,10 @@
         <a href="https://apps.apple.com/us/app/crossroad-chaos/id6762072095" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71,19.5C17.88,20.74,17,21.95,15.66,22c-1.34,.05-1.77-.77-3.29-.77-1.53,0-2,.75-3.27,.8-1.31,.05-2.3-1.32-3.14-2.53C4.25,17,2.94,12.45,4.7,9.39c.87-1.52,2.43-2.48,4.12-2.51,1.28-.02,2.5,.87,3.29,.87,.78,0,2.26-1.07,3.81-.91,1.66,.07,3.02,.72,3.92,1.84a6.79,6.79,0,0,0-3.32,5.76c.02,4,3.25,5.34,3.28,5.35ZM15.8,5.17A5.23,5.23,0,0,0,17.16,1.4a5.27,5.27,0,0,0-3.53,1.83,5.08,5.08,0,0,0-1.42,3.67,4.35,4.35,0,0,0,3.59-1.73Z"/></svg>
           Download on the App Store
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.ggme.oroad" target="_blank" rel="noopener noreferrer" class="btn btn-android">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.63 2.26a1.4 1.4 0 0 0-.38.97v17.54c0 .35.13.69.38.97l9.47-9.74L3.63 2.26Zm10.4 8.78 2.76-2.84L5.1 1.48c-.2-.12-.41-.18-.62-.19l9.55 9.75Zm0 1.92-9.55 9.75c.21-.01.42-.07.62-.19l11.69-6.72-2.76-2.84Zm3.93-3.89-3 2.93 3 2.93 2.1-1.21c.46-.26.69-.69.69-1.12s-.23-.86-.69-1.12l-2.1-1.21Z"/></svg>
+          Get it on Google Play
         </a>
         <a href="builds/web/crossroad-chaos.html" rel="noopener noreferrer" class="btn play-now-btn">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.93 8zM12 4.04c.83 1.2 1.5 2.54 1.96 3.96h-3.92c.46-1.42 1.13-2.76 1.96-3.96zM4.26 14a7.9 7.9 0 0 1 0-4h3.08A16.9 16.9 0 0 0 7.2 12c0 .68.05 1.35.14 2H4.26zm.81 2h2.95c.34 1.25.82 2.45 1.38 3.56A8.03 8.03 0 0 1 5.07 16zM12 19.96A14.1 14.1 0 0 1 10.04 16h3.92A14.1 14.1 0 0 1 12 19.96zM14.4 19.56c.56-1.11 1.04-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56zM16.66 14H7.34A14.9 14.9 0 0 1 7.2 12c0-.68.05-1.35.14-2h9.32c.09.65.14 1.32.14 2 0 .68-.05 1.35-.14 2z"/></svg>
@@ -894,7 +924,7 @@
     <div style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; align-items: center;">
       <h2 style="font-size: 2.5rem; font-family: 'Orbitron';">READY TO TAKE CONTROL?</h2>
       <p style="color: var(--text-secondary); font-size: 1.1rem;">
-        Download Crossroad Chaos on your Apple device and prove you can keep the busiest roads under control.
+        Download Crossroad Chaos on iPhone, iPad, or Android and prove you can keep the busiest roads under control.
       </p>
       
       <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px;">
@@ -902,10 +932,14 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="margin-right:5px;"><path d="M18.71,19.5C17.88,20.74,17,21.95,15.66,22c-1.34,.05-1.77-.77-3.29-.77-1.53,0-2,.75-3.27,.8-1.31,.05-2.3-1.32-3.14-2.53C4.25,17,2.94,12.45,4.7,9.39c.87-1.52,2.43-2.48,4.12-2.51,1.28-.02,2.5,.87,3.29,.87,.78,0,2.26-1.07,3.81-.91,1.66,.07,3.02,.72,3.92,1.84a6.79,6.79,0,0,0-3.32,5.76c.02,4,3.25,5.34,3.28,5.35ZM15.8,5.17A5.23,5.23,0,0,0,17.16,1.4a5.27,5.27,0,0,0-3.53,1.83,5.08,5.08,0,0,0-1.42,3.67,4.35,4.35,0,0,0,3.59-1.73Z"/></svg>
           Download on the App Store
         </a>
+        <a href="https://play.google.com/store/apps/details?id=com.ggme.oroad" target="_blank" rel="noopener noreferrer" class="btn btn-android" style="padding: 16px 36px; border-radius: 40px; font-size: 1.1rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="margin-right:5px;"><path d="M3.63 2.26a1.4 1.4 0 0 0-.38.97v17.54c0 .35.13.69.38.97l9.47-9.74L3.63 2.26Zm10.4 8.78 2.76-2.84L5.1 1.48c-.2-.12-.41-.18-.62-.19l9.55 9.75Zm0 1.92-9.55 9.75c.21-.01.42-.07.62-.19l11.69-6.72-2.76-2.84Zm3.93-3.89-3 2.93 3 2.93 2.1-1.21c.46-.26.69-.69.69-1.12s-.23-.86-.69-1.12l-2.1-1.21Z"/></svg>
+          Get it on Google Play
+        </a>
       </div>
       
       <span style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 10px;">
-        Supports iOS 15.0 or later. Optimized for iPhone and iPad.
+        Supports iOS 15.0 or later and Android devices via Google Play.
       </span>
     </div>
   </section>
@@ -943,6 +977,7 @@
       <div>&copy; 2026 GGme Studio. All rights reserved.</div>
       <div>
         <a href="https://apps.apple.com/us/app/crossroad-chaos/id6762072095" target="_blank" rel="noopener noreferrer" style="margin-right: 15px; text-decoration: underline;">App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.ggme.oroad" target="_blank" rel="noopener noreferrer" style="margin-right: 15px; text-decoration: underline;">Google Play</a>
         <a href="game_support.html" style="margin-right: 15px; text-decoration: underline;">Support</a>
         <a href="privacy.html" style="margin-right: 15px; text-decoration: underline;">Privacy</a>
         <a href="terms.html" style="text-decoration: underline;">Terms</a>
