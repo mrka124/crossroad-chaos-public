@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1783614269|3011966';
+const CACHE_VERSION = '1784043447|2523422';
 /** @type {string} */
 const CACHE_PREFIX = 'Crossroad Chaos-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
