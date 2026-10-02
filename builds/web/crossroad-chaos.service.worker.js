@@ -4,14 +4,14 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1784043447|2523422';
+const CACHE_VERSION = '1790959882|11476967';
 /** @type {string} */
 const CACHE_PREFIX = 'Crossroad Chaos-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
 /** @type {string} */
 const OFFLINE_URL = 'crossroad-chaos.offline.html';
 /** @type {boolean} */
-const ENSURE_CROSSORIGIN_ISOLATION_HEADERS = true;
+const ENSURE_CROSSORIGIN_ISOLATION_HEADERS = false;
 // Files that will be cached on load.
 /** @type {string[]} */
 const CACHED_FILES = ["crossroad-chaos.html","crossroad-chaos.js","crossroad-chaos.offline.html","crossroad-chaos.icon.png","crossroad-chaos.apple-touch-icon.png","crossroad-chaos.audio.worklet.js","crossroad-chaos.audio.position.worklet.js"];
