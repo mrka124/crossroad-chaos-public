@@ -4,61 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support - Game Support Center</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #f4f4f7;
-        }
-        .container {
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        h1 {
-            color: #1d1d1f;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 10px;
-        }
-        h2 {
-            color: #0071e3;
-            margin-top: 30px;
-        }
-        .faq-item {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #fafafa;
-            border-radius: 8px;
-        }
-        .faq-question {
-            font-weight: 600;
-            color: #1d1d1f;
-            display: block;
-            margin-bottom: 5px;
-        }
-        .status-box {
-            background-color: #e8f5e9;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #4caf50;
-            margin: 20px 0;
-        }
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 0.85em;
-            color: #8e8e93;
-        }
-    </style>
+    <meta name="color-scheme" content="light dark">
+    <title>Game Support | Crossroad Chaos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="legal-pages.css">
 </head>
 <body>
-    <div class="container">
+    <header class="site-header">
+        <nav class="site-nav" aria-label="Main navigation">
+            <a class="site-brand" href="index.html"><img src="icon_1024.png" alt="Crossroad Chaos"><span>Crossroad Chaos</span></a>
+            <ul class="site-nav-links">
+                <li><a href="index.html#features">Gameplay</a></li>
+                <li><a href="index.html#download">Download</a></li>
+                <li><a href="game_support.html" aria-current="page">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="legal-main">
+    <article class="container policy-content">
+        <span class="page-kicker">Help center</span>
         <h1>Support Center</h1>
         <p>Welcome to the support page. Our game is designed to be a simple, standalone offline experience. Most common questions are answered below.</p>
 
@@ -85,9 +51,11 @@
 
         <h2>Privacy & Data</h2>
         <p>This application does not collect, track, or share any personal information. No user data is transmitted to external servers as there is no online component.</p>
-    </div>
-    <footer>
-        &copy; 2024 [Your Game Studio]. All rights reserved.
+    </article>
+    </main>
+    <footer class="legal-footer">
+        <div class="legal-footer-links"><a href="game_support.html" aria-current="page">Support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+        &copy; 2026 GGme Studio. All rights reserved.
     </footer>
 </body>
 </html>

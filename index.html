@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
   <title>Crossroad Chaos - Real-Time Traffic Control Game for iOS and Android</title>
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
@@ -24,6 +25,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 
+  <script>
+    // Apply the operating system preference before the page renders.
+    document.documentElement.dataset.theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
+  </script>
+
   <style>
     /* Design Tokens & CSS Variables */
     :root {
@@ -37,6 +43,7 @@
       --card-bg: rgba(255, 255, 255, 0.8);
       --card-border: rgba(15, 23, 42, 0.08);
       --glow-color: rgba(99, 102, 241, 0.15);
+      --page-width: 1120px;
     }
 
     [data-theme="night"] {
@@ -77,6 +84,12 @@
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--accent-color);
+      outline-offset: 3px;
     }
 
     /* Glassmorphic Navbar */
@@ -607,6 +620,259 @@
       background-color: var(--accent-color);
     }
 
+    /* How-to-play, videos, and rewards */
+    .how-to-play {
+      background: var(--bg-secondary);
+      border-block: 1px solid var(--card-border);
+    }
+
+    .how-to-play-grid,
+    .video-grid,
+    .rewards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .play-step,
+    .video-card,
+    .reward-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+    }
+
+    .play-step {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--accent-color);
+      color: white;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .play-step h3,
+    .reward-card h3 {
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+    }
+
+    .play-step p,
+    .reward-card p,
+    .video-card p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .videos {
+      background: linear-gradient(180deg, var(--bg-secondary), transparent);
+    }
+
+    .video-card {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      overflow: hidden;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .video-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-color);
+      box-shadow: 0 20px 42px var(--glow-color);
+    }
+
+    .video-thumbnail {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      aspect-ratio: 905 / 418;
+      background: #050914;
+    }
+
+    .video-thumbnail img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.35s ease;
+    }
+
+    .video-card:hover .video-thumbnail img {
+      transform: scale(1.04);
+    }
+
+    .video-play-button {
+      position: absolute;
+      inset: 50% auto auto 50%;
+      width: 58px;
+      height: 42px;
+      transform: translate(-50%, -50%);
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: #ff0033;
+      color: white;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+    }
+
+    .video-play-button::before {
+      content: '';
+      margin-left: 3px;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 12px solid currentColor;
+    }
+
+    .video-card-copy {
+      padding: 20px 22px 22px;
+    }
+
+    .video-card h3 {
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+    }
+
+    .rewards {
+      background: linear-gradient(180deg, transparent, var(--bg-secondary));
+    }
+
+    .rewards-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .reward-card {
+      padding: 26px;
+      min-height: 100%;
+    }
+
+    .reward-icon {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      margin-bottom: 18px;
+    }
+
+    /* Download call-to-action */
+    .download-section {
+      padding: 96px 5%;
+      background:
+        radial-gradient(circle at 8% 50%, var(--glow-color), transparent 30%),
+        var(--bg-secondary);
+      border-top: 1px solid var(--card-border);
+      transition: background 0.5s ease, border-color 0.5s ease;
+    }
+
+    .download-card {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: clamp(32px, 5vw, 64px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+      gap: clamp(32px, 6vw, 84px);
+      align-items: center;
+      text-align: left;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 32px;
+      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.14);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .download-card::after {
+      content: '';
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -130px;
+      bottom: -180px;
+      border-radius: 50%;
+      background: var(--glow-color);
+      filter: blur(18px);
+      pointer-events: none;
+    }
+
+    .download-copy,
+    .download-actions {
+      position: relative;
+      z-index: 1;
+    }
+
+    .download-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-color);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .download-kicker::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.13);
+    }
+
+    .download-title {
+      margin: 14px 0 16px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+      line-height: 1.22;
+      letter-spacing: -0.04em;
+    }
+
+    .download-description {
+      max-width: 610px;
+      color: var(--text-secondary);
+      font-size: clamp(1rem, 1.4vw, 1.12rem);
+      line-height: 1.65;
+    }
+
+    .download-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .download-actions .btn {
+      width: 100%;
+      min-height: 62px;
+      padding: 14px 28px;
+      border-radius: 18px;
+      font-size: 1.05rem;
+    }
+
+    .download-actions .btn svg {
+      flex: 0 0 auto;
+      width: 24px;
+      height: 24px;
+    }
+
+    .download-note {
+      margin-top: 6px;
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
     /* Footer Styles */
     footer {
       background-color: var(--bg-secondary);
@@ -687,17 +953,299 @@
       gap: 15px;
     }
 
+    /* Site-wide visual system */
+    .navbar {
+      height: 76px;
+      padding-inline: max(5%, calc((100% - var(--page-width)) / 2));
+      background: color-mix(in srgb, var(--bg-primary) 82%, transparent);
+      backdrop-filter: blur(18px) saturate(150%);
+      -webkit-backdrop-filter: blur(18px) saturate(150%);
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px var(--glow-color);
+    }
+
+    .logo-text {
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      background: linear-gradient(135deg, var(--accent-color), #c084fc);
+      -webkit-background-clip: text;
+    }
+
+    .nav-links { gap: 28px; }
+    .nav-links a { font-size: 0.9rem; }
+
+    .theme-toggle-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+    }
+
+    .btn-play-header {
+      padding: 10px 18px;
+      border-radius: 12px;
+    }
+
+    .hero {
+      min-height: min(860px, 100vh);
+      padding: 160px 5% 110px;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 50% 38%, var(--glow-color), transparent 33%),
+        linear-gradient(var(--card-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--card-border) 1px, transparent 1px);
+      background-size: auto, 54px 54px, 54px 54px;
+      mask-image: linear-gradient(to bottom, transparent, black 18%, black 74%, transparent);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: min(74vw, 920px);
+      height: 260px;
+      bottom: -190px;
+      border: 1px solid var(--card-border);
+      border-radius: 50%;
+      box-shadow: 0 -20px 100px var(--glow-color);
+      z-index: 0;
+    }
+
+    .hero-content { max-width: 860px; }
+
+    .game-badge {
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: color-mix(in srgb, var(--accent-color) 10%, transparent);
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 7vw, 5.25rem);
+      line-height: 1.04;
+      margin-bottom: 24px;
+      letter-spacing: -0.07em;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.08rem, 2vw, 1.3rem);
+      max-width: 700px;
+    }
+
+    .btn {
+      min-height: 52px;
+      padding: 13px 25px;
+      border-radius: 14px;
+    }
+
+    .play-now-btn:hover { transform: translateY(-3px); }
+
+    section {
+      padding: 112px max(5%, calc((100% - var(--page-width)) / 2));
+    }
+
+    .section-title-wrapper {
+      max-width: 680px;
+      margin: 0 auto 52px;
+    }
+
+    .section-subtitle {
+      font-size: 0.76rem;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.18;
+      letter-spacing: -0.045em;
+    }
+
+    .features {
+      background: linear-gradient(180deg, transparent, var(--bg-secondary) 50%, transparent);
+    }
+
+    .features-grid { gap: 20px; }
+
+    .feature-card {
+      min-height: 100%;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+    }
+
+    .feature-card:hover { transform: translateY(-7px); }
+
+    .feature-icon-wrapper {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+    }
+
+    .feature-details { margin-top: auto; }
+
+    .detail-item {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 12px;
+    }
+
+    .detail-item span.value { text-align: right; }
+
+    .gallery-carousel-wrapper {
+      max-width: var(--page-width);
+      border-radius: 28px;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.2);
+    }
+
+    .carousel-overlay {
+      padding: 46px clamp(24px, 5vw, 52px) 34px;
+    }
+
+    .carousel-nav-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+    }
+
+    .how-to-play-grid,
+    .video-grid,
+    .rewards-grid { gap: 20px; }
+
+    .download-section { padding-inline: max(5%, calc((100% - var(--page-width)) / 2)); }
+
+    footer {
+      padding: 72px max(5%, calc((100% - var(--page-width)) / 2)) 34px;
+    }
+
+    .footer-content {
+      gap: 48px;
+      margin-bottom: 48px;
+      max-width: var(--page-width);
+    }
+
+    .footer-brand p {
+      max-width: 440px;
+      font-size: 1rem;
+    }
+
+    .footer-links-group h4 { font-size: 0.78rem; }
+    .footer-bottom { max-width: var(--page-width); }
+
+    .footer-store-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+    }
+
+    .footer-store-links a {
+      text-decoration: none !important;
+      transition: color 0.2s ease;
+    }
+
+    .footer-store-links a:hover { color: var(--accent-color); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+
     /* Responsive adjustments */
     @media (max-width: 768px) {
-      .hero-title {
-        font-size: 2.8rem;
+      .navbar { padding-inline: 5%; }
+
+      .hero {
+        min-height: auto;
+        padding: 140px 5% 88px;
       }
+
+      .hero-title {
+        font-size: clamp(2.75rem, 12vw, 4rem);
+      }
+
       .nav-links {
         display: none;
       }
+
+      section { padding: 78px 5%; }
+
       .floating-bg {
         display: none; /* Hide floating elements on mobile for clean screen spacing */
       }
+
+      .section-title-wrapper { margin-bottom: 36px; }
+      .feature-card { padding: 28px; }
+      .how-to-play-grid,
+      .video-grid { grid-template-columns: 1fr; }
+      .rewards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .carousel-nav-btn.prev { left: 12px; }
+      .carousel-nav-btn.next { right: 12px; }
+      .carousel-overlay { padding: 48px 24px 24px; }
+
+      .download-section {
+        padding: 64px 5%;
+      }
+
+      .download-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        border-radius: 24px;
+      }
+
+      footer { padding: 60px 5% 28px; }
+    }
+
+    @media (max-width: 600px) {
+      .navbar { height: 68px; }
+      .logo-container { gap: 8px; }
+
+      .logo-text {
+        max-width: 145px;
+        font-size: 0.78rem;
+        line-height: 1.1;
+      }
+
+      .nav-right { gap: 8px; }
+      .btn-play-header { display: none; }
+      .hero { padding-top: 118px; }
+
+      .game-badge {
+        font-size: 0.68rem;
+        letter-spacing: 0.04em;
+      }
+
+      .hero-cta { width: min(100%, 340px); }
+      .hero-cta .btn { width: 100%; }
+      .carousel-title { font-size: 1.15rem; }
+      .carousel-desc { font-size: 0.85rem; }
+      .carousel-nav-btn { display: none; }
+      .carousel-dots { padding-block: 13px; }
+      .carousel-dot { width: 9px; height: 9px; }
+      .carousel-dot.active { width: 30px; }
+      .footer-content { gap: 32px; }
+      .footer-brand { min-width: 0; }
+      .footer-bottom { padding-top: 24px; }
+      .rewards-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 480px) {
@@ -711,10 +1259,27 @@
         padding: 13px 18px;
         font-size: 0.95rem;
       }
+
+      .download-card {
+        padding: 30px 24px;
+      }
+
+      .download-actions .btn {
+        max-width: none;
+        min-height: 58px;
+        font-size: 1rem;
+      }
+
+      .detail-item {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .detail-item span.value { text-align: left; }
     }
   </style>
 </head>
-<body data-theme="night">
+<body>
 
   <!-- Navigation Bar -->
   <nav class="navbar">
@@ -724,7 +1289,9 @@
     </div>
     
     <ul class="nav-links">
+      <li><a href="#how-to-play">How to Play</a></li>
       <li><a href="#features">Gameplay</a></li>
+      <li><a href="#rewards">Rewards</a></li>
       <li><a href="#gallery">Screenshots</a></li>
       <li><a href="#download">Download</a></li>
     </ul>
@@ -757,7 +1324,7 @@
       </div>
       <h1 class="hero-title">Crossroad Chaos</h1>
       <p class="hero-tagline">
-        Take command of a living intersection where every light matters. Time your signals, clear urgent routes, and keep the city moving before chaos takes over.
+        One tap can save the street. Keep traffic moving, clear the chaos, and beat your best run.
       </p>
       
       <div class="hero-cta">
@@ -777,6 +1344,32 @@
     </div>
   </section>
 
+  <!-- How to Play Section -->
+  <section class="how-to-play" id="how-to-play" aria-labelledby="how-to-play-title">
+    <div class="section-title-wrapper">
+      <span class="section-subtitle">Quick to Learn</span>
+      <h2 class="section-title" id="how-to-play-title">Three Steps to Save the Street</h2>
+    </div>
+
+    <div class="how-to-play-grid">
+      <article class="play-step">
+        <span class="step-number">1</span>
+        <h3>Watch the Traffic Build</h3>
+        <p>Keep an eye on every lane as the intersection gets busier.</p>
+      </article>
+      <article class="play-step">
+        <span class="step-number">2</span>
+        <h3>Tap Lights to Clear the Way</h3>
+        <p>Switch signals at the right moment to keep cars flowing safely.</p>
+      </article>
+      <article class="play-step">
+        <span class="step-number">3</span>
+        <h3>Save the City</h3>
+        <p>Clear urgent routes, avoid the chaos, and beat your best score.</p>
+      </article>
+    </div>
+  </section>
+
   <!-- Feature Grid Section -->
   <section class="features" id="features">
     <!-- Floating Low-Poly Weather Elements -->
@@ -784,8 +1377,8 @@
     <img src="assets/weather/birds_lowpoly.png" class="floating-bg birds" alt="Flock of Birds">
 
     <div class="section-title-wrapper">
-      <span class="section-subtitle">Fast, Focused, Tactical</span>
-      <h2 class="section-title">Built for Split-Second Decisions</h2>
+      <span class="section-subtitle">Easy to Pick Up, Hard to Put Down</span>
+      <h2 class="section-title">Take Charge of the Chaos</h2>
     </div>
 
     <div class="features-grid">
@@ -795,21 +1388,21 @@
           <!-- Shield/Police Icon -->
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <h3>Traffic Priorities</h3>
-        <p>Balance everyday traffic with urgent vehicles and protected convoys. Each lane, route, and siren asks for a different kind of timing.</p>
+        <h3>Keep Traffic Moving</h3>
+        <p>Tap the lights, spot the busy lanes, and turn a jammed intersection into a smooth-flowing city street.</p>
         
         <div class="feature-details">
           <div class="detail-item">
-            <span class="label">City Traffic</span>
-            <span class="value">Cars, taxis, trucks</span>
+            <span class="label">Spot the Rush</span>
+            <span class="value">See where the queue is building</span>
           </div>
           <div class="detail-item">
-            <span class="label">Emergency Routes</span>
-            <span class="value">Ambulance and police</span>
+            <span class="label">Switch the Lights</span>
+            <span class="value">Open the way at the right time</span>
           </div>
           <div class="detail-item">
-            <span class="label">VIP Convoys</span>
-            <span class="value">Escorted limo routes</span>
+            <span class="label">Find Your Flow</span>
+            <span class="value">Keep every lane rolling</span>
           </div>
         </div>
       </div>
@@ -820,21 +1413,21 @@
           <!-- Alert Triangle Icon -->
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01"/></svg>
         </div>
-        <h3>Risk & Pressure</h3>
-        <p>Every mistake has momentum. Crashes cost lives, long queues drain points, and impatient drivers make the intersection harder to control.</p>
+        <h3>Stay Cool Under Pressure</h3>
+        <p>One mistimed light can tie up the whole crossing. Make a quick call, clear the way, and save the day.</p>
         
         <div class="feature-details">
           <div class="detail-item">
-            <span class="label">Crash Limit</span>
-            <span class="value">3 lives per run</span>
+            <span class="label">Close Calls</span>
+            <span class="value">Think fast when lanes collide</span>
           </div>
           <div class="detail-item">
-            <span class="label">Recovery Delay</span>
-            <span class="value">1.5 - 2.5s after impact</span>
+            <span class="label">Emergency Dash</span>
+            <span class="value">Make room for sirens</span>
           </div>
           <div class="detail-item">
-            <span class="label">Queue Pressure</span>
-            <span class="value">Drivers react after 2 cycles</span>
+            <span class="label">Beat Your Best</span>
+            <span class="value">Turn great saves into high scores</span>
           </div>
         </div>
       </div>
@@ -845,21 +1438,21 @@
           <!-- Cloud Drizzle Icon -->
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 19c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3c.4 0 .76.08 1.1.22a6 6 0 0 1 11.8-2.22A4.5 4.5 0 0 1 22 18.5c0 2.49-2.01 4.5-4.5 4.5a4.5 4.5 0 0 1-3.5-1.63M16 13v6M8 13v6M12 15v6"/></svg>
         </div>
-        <h3>Changing Conditions</h3>
-        <p>Weather and time of day change how the road feels. Rain, snow, headlights, and light beacons all reshape your rhythm mid-run.</p>
+        <h3>Every Run Feels Fresh</h3>
+        <p>From sunny streets to snowy nights, changing weather and city lights keep every intersection full of surprises.</p>
         
         <div class="feature-details">
           <div class="detail-item">
-            <span class="label">Rain</span>
-            <span class="value">Slower roads, tire spray</span>
+            <span class="label">Rain or Shine</span>
+            <span class="value">New road moods to master</span>
           </div>
           <div class="detail-item">
-            <span class="label">Snow</span>
-            <span class="value">Reduced speed, drifting flurries</span>
+            <span class="label">Day to Night</span>
+            <span class="value">Watch the city transform</span>
           </div>
           <div class="detail-item">
-            <span class="label">Day & Night</span>
-            <span class="value">Headlights and glowing signals</span>
+            <span class="label">One More Try</span>
+            <span class="value">There is always a new challenge</span>
           </div>
         </div>
       </div>
@@ -924,28 +1517,100 @@
     </div>
   </section>
 
+  <!-- Gameplay Videos Section -->
+  <section class="videos" id="videos" aria-labelledby="videos-title">
+    <div class="section-title-wrapper">
+      <span class="section-subtitle">See It in Motion</span>
+      <h2 class="section-title" id="videos-title">A City That Never Stops Moving</h2>
+    </div>
+
+    <div class="video-grid">
+      <a class="video-card" href="https://youtu.be/5i8locKlKF4?si=BMd9lnMFyZkhmVGU" target="_blank" rel="noopener noreferrer" aria-label="Watch Crossroad Chaos gameplay video 1 on YouTube">
+        <span class="video-thumbnail">
+          <img src="https://i.ytimg.com/vi/5i8locKlKF4/hqdefault.jpg" alt="Crossroad Chaos gameplay video preview" loading="lazy">
+          <span class="video-play-button" aria-hidden="true"></span>
+        </span>
+        <div class="video-card-copy">
+          <h3>Keep the Flow Going</h3>
+          <p>Every light change shapes the next close call. Watch on YouTube.</p>
+        </div>
+      </a>
+      <a class="video-card" href="https://youtu.be/A_w4ApOPEME?si=QpOCog9W4BgdLclL" target="_blank" rel="noopener noreferrer" aria-label="Watch Crossroad Chaos gameplay video 2 on YouTube">
+        <span class="video-thumbnail">
+          <img src="https://i.ytimg.com/vi/A_w4ApOPEME/hqdefault.jpg" alt="Crossroad Chaos gameplay video preview" loading="lazy">
+          <span class="video-play-button" aria-hidden="true"></span>
+        </span>
+        <div class="video-card-copy">
+          <h3>Stay One Step Ahead</h3>
+          <p>Read the streets, react quickly, and keep the city under control. Watch on YouTube.</p>
+        </div>
+      </a>
+      <a class="video-card" href="https://youtu.be/5J8nTmxI6QQ?si=_IXx2DUiZ6fAo8Ph" target="_blank" rel="noopener noreferrer" aria-label="Watch Crossroad Chaos gameplay video 3 on YouTube">
+        <span class="video-thumbnail">
+          <img src="https://i.ytimg.com/vi/5J8nTmxI6QQ/hqdefault.jpg" alt="Crossroad Chaos gameplay video preview" loading="lazy">
+          <span class="video-play-button" aria-hidden="true"></span>
+        </span>
+        <div class="video-card-copy">
+          <h3>Turn Chaos into a Clean Run</h3>
+          <p>There is always another route to clear and another score to beat. Watch on YouTube.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Rewards Section -->
+  <section class="rewards" id="rewards" aria-labelledby="rewards-title">
+    <div class="section-title-wrapper">
+      <span class="section-subtitle">Keep Playing, Keep Unlocking</span>
+      <h2 class="section-title" id="rewards-title">More Runs. More to Discover.</h2>
+    </div>
+
+    <div class="rewards-grid">
+      <article class="reward-card">
+        <img src="assets/ui/powerup_shield.svg" class="reward-icon" alt="Shield power-up">
+        <h3>Helpful Power-Ups</h3>
+        <p>Unlock tools that help you handle your toughest traffic moments.</p>
+      </article>
+      <article class="reward-card">
+        <img src="assets/ui/play.svg" class="reward-icon" alt="New map unlock">
+        <h3>New Maps</h3>
+        <p>Open up fresh intersections and find new ways to test your timing.</p>
+      </article>
+      <article class="reward-card">
+        <img src="assets/weather/cloud_lowpoly.png" class="reward-icon" alt="Weather unlock">
+        <h3>City Atmosphere</h3>
+        <p>Bring new weather, music, and city life to every run.</p>
+      </article>
+      <article class="reward-card">
+        <img src="assets/ui/filter_neon_city.svg" class="reward-icon" alt="Neon city visual style unlock">
+        <h3>Fresh Looks</h3>
+        <p>Unlock visual styles that give your city a whole new feel.</p>
+      </article>
+    </div>
+  </section>
+
   <!-- Download Call-to-action Section -->
-  <section class="download-section" id="download" style="text-align: center; background-color: var(--bg-secondary); border-top: 1px solid var(--card-border); padding: 100px 5%;">
-    <div style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; align-items: center;">
-      <h2 style="font-size: 2.5rem; font-family: 'Orbitron';">READY TO TAKE CONTROL?</h2>
-      <p style="color: var(--text-secondary); font-size: 1.1rem;">
-        Download Crossroad Chaos on iPhone, iPad, or Android and prove you can keep the busiest roads under control.
-      </p>
-      
-      <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px;">
-        <a href="https://apps.apple.com/us/app/crossroad-chaos/id6762072095" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 16px 36px; border-radius: 40px; font-size: 1.1rem;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="margin-right:5px;"><path d="M18.71,19.5C17.88,20.74,17,21.95,15.66,22c-1.34,.05-1.77-.77-3.29-.77-1.53,0-2,.75-3.27,.8-1.31,.05-2.3-1.32-3.14-2.53C4.25,17,2.94,12.45,4.7,9.39c.87-1.52,2.43-2.48,4.12-2.51,1.28-.02,2.5,.87,3.29,.87,.78,0,2.26-1.07,3.81-.91,1.66,.07,3.02,.72,3.92,1.84a6.79,6.79,0,0,0-3.32,5.76c.02,4,3.25,5.34,3.28,5.35ZM15.8,5.17A5.23,5.23,0,0,0,17.16,1.4a5.27,5.27,0,0,0-3.53,1.83,5.08,5.08,0,0,0-1.42,3.67,4.35,4.35,0,0,0,3.59-1.73Z"/></svg>
+  <section class="download-section" id="download" aria-labelledby="download-title">
+    <div class="download-card">
+      <div class="download-copy">
+        <span class="download-kicker">Available now</span>
+        <h2 class="download-title" id="download-title">Ready to take control?</h2>
+        <p class="download-description">
+          Download Crossroad Chaos on iPhone, iPad, or Android and prove you can keep the busiest roads under control.
+        </p>
+      </div>
+
+      <div class="download-actions">
+        <a href="https://apps.apple.com/us/app/crossroad-chaos/id6762072095" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71,19.5C17.88,20.74,17,21.95,15.66,22c-1.34,.05-1.77-.77-3.29-.77-1.53,0-2,.75-3.27,.8-1.31,.05-2.3-1.32-3.14-2.53C4.25,17,2.94,12.45,4.7,9.39c.87-1.52,2.43-2.48,4.12-2.51,1.28-.02,2.5,.87,3.29,.87,.78,0,2.26-1.07,3.81-.91,1.66,.07,3.02,.72,3.92,1.84a6.79,6.79,0,0,0-3.32,5.76c.02,4,3.25,5.34,3.28,5.35ZM15.8,5.17A5.23,5.23,0,0,0,17.16,1.4a5.27,5.27,0,0,0-3.53,1.83,5.08,5.08,0,0,0-1.42,3.67,4.35,4.35,0,0,0,3.59-1.73Z"/></svg>
           Download on the App Store
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.ggme.oroad" target="_blank" rel="noopener noreferrer" class="btn btn-android" style="padding: 16px 36px; border-radius: 40px; font-size: 1.1rem;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="margin-right:5px;"><path d="M3.63 2.26a1.4 1.4 0 0 0-.38.97v17.54c0 .35.13.69.38.97l9.47-9.74L3.63 2.26Zm10.4 8.78 2.76-2.84L5.1 1.48c-.2-.12-.41-.18-.62-.19l9.55 9.75Zm0 1.92-9.55 9.75c.21-.01.42-.07.62-.19l11.69-6.72-2.76-2.84Zm3.93-3.89-3 2.93 3 2.93 2.1-1.21c.46-.26.69-.69.69-1.12s-.23-.86-.69-1.12l-2.1-1.21Z"/></svg>
+        <a href="https://play.google.com/store/apps/details?id=com.ggme.oroad" target="_blank" rel="noopener noreferrer" class="btn btn-android">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.63 2.26a1.4 1.4 0 0 0-.38.97v17.54c0 .35.13.69.38.97l9.47-9.74L3.63 2.26Zm10.4 8.78 2.76-2.84L5.1 1.48c-.2-.12-.41-.18-.62-.19l9.55 9.75Zm0 1.92-9.55 9.75c.21-.01.42-.07.62-.19l11.69-6.72-2.76-2.84Zm3.93-3.89-3 2.93 3 2.93 2.1-1.21c.46-.26.69-.69.69-1.12s-.23-.86-.69-1.12l-2.1-1.21Z"/></svg>
           Get it on Google Play
         </a>
+        <p class="download-note">Supports iOS 15.0 or later and Android devices via Google Play.</p>
       </div>
-      
-      <span style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 10px;">
-        Supports iOS 15.0 or later and Android devices via Google Play.
-      </span>
     </div>
   </section>
 
@@ -957,13 +1622,16 @@
           <img src="icon_1024.png" class="logo-icon" alt="Crossroad Chaos Logo">
           <span class="logo-text">CROSSROAD CHAOS</span>
         </div>
-        <p>A real-time traffic control puzzle game about timing, pressure, and keeping a beautiful low-poly city in motion.</p>
+        <p>A quick-thinking traffic game made by GGme Studio.</p>
       </div>
 
       <div class="footer-links-group">
         <h4>Game</h4>
         <ul>
+          <li><a href="#how-to-play">How to Play</a></li>
           <li><a href="#features">Gameplay</a></li>
+          <li><a href="#videos">Gameplay Videos</a></li>
+          <li><a href="#rewards">Rewards</a></li>
           <li><a href="#gallery">Screenshots</a></li>
         </ul>
       </div>
@@ -980,12 +1648,12 @@
 
     <div class="footer-bottom">
       <div>&copy; 2026 GGme Studio. All rights reserved.</div>
-      <div>
-        <a href="https://apps.apple.com/us/app/crossroad-chaos/id6762072095" target="_blank" rel="noopener noreferrer" style="margin-right: 15px; text-decoration: underline;">App Store</a>
-        <a href="https://play.google.com/store/apps/details?id=com.ggme.oroad" target="_blank" rel="noopener noreferrer" style="margin-right: 15px; text-decoration: underline;">Google Play</a>
-        <a href="game_support.html" style="margin-right: 15px; text-decoration: underline;">Support</a>
-        <a href="privacy.html" style="margin-right: 15px; text-decoration: underline;">Privacy</a>
-        <a href="terms.html" style="text-decoration: underline;">Terms</a>
+      <div class="footer-store-links">
+        <a href="https://apps.apple.com/us/app/crossroad-chaos/id6762072095" target="_blank" rel="noopener noreferrer">App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.ggme.oroad" target="_blank" rel="noopener noreferrer">Google Play</a>
+        <a href="game_support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
       </div>
     </div>
   </footer>
@@ -993,27 +1661,41 @@
   <!-- Page Logic -->
   <script>
     // Theme Mode Toggle
-    let themeMode = 'night';
+    const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    let themeMode = colorSchemeQuery.matches ? 'night' : 'day';
     const themeBtn = document.getElementById('theme-btn');
     const sunIcon = document.getElementById('sun-icon');
     const moonIcon = document.getElementById('moon-icon');
 
+    function applyTheme(mode) {
+      themeMode = mode;
+      document.documentElement.dataset.theme = mode;
+      sunIcon.style.display = mode === 'day' ? 'block' : 'none';
+      moonIcon.style.display = mode === 'night' ? 'block' : 'none';
+      themeBtn.setAttribute('aria-pressed', String(mode === 'night'));
+      const nextMode = mode === 'night' ? 'day' : 'night';
+      themeBtn.setAttribute('aria-label', `Switch to ${nextMode} mode`);
+      themeBtn.title = `Switch to ${nextMode} mode`;
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
-      document.body.setAttribute('data-theme', themeMode);
+      applyTheme(themeMode);
       buildCarouselDots();
     });
 
     themeBtn.addEventListener('click', () => {
-      themeMode = themeMode === 'night' ? 'day' : 'night';
-      document.body.setAttribute('data-theme', themeMode);
-      if (themeMode === 'night') {
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-      } else {
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
-      }
+      applyTheme(themeMode === 'night' ? 'day' : 'night');
     });
+
+    function syncThemeWithSystem(event) {
+      applyTheme(event.matches ? 'night' : 'day');
+    }
+
+    if (colorSchemeQuery.addEventListener) {
+      colorSchemeQuery.addEventListener('change', syncThemeWithSystem);
+    } else {
+      colorSchemeQuery.addListener(syncThemeWithSystem);
+    }
 
     // Carousel Logic
     let currentSlide = 0;
