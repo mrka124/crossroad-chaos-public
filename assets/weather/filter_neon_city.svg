@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Neon city filter: big readable skyline -->
+  <polygon points="14,24 26,12 86,12 74,24" fill="#b0b0b0"/>
+  <polygon points="14,24 74,24 74,86 14,86" fill="#101322"/>
+  <polygon points="74,24 86,12 86,74 74,86" fill="#444a6b"/>
+  <polygon points="24,56 32,48 42,48 34,56" fill="#00e5ff"/>
+  <polygon points="24,56 34,56 34,78 24,78" fill="#00bcd4"/>
+  <polygon points="34,56 42,48 42,70 34,78" fill="#087a91"/>
+  <polygon points="42,38 50,30 62,30 54,38" fill="#ff4fd8"/>
+  <polygon points="42,38 54,38 54,78 42,78" fill="#db2ab4"/>
+  <polygon points="54,38 62,30 62,70 54,78" fill="#8d207a"/>
+  <polygon points="58,50 66,42 76,42 68,50" fill="#fff04a"/>
+  <polygon points="58,50 68,50 68,78 58,78" fill="#d6c821"/>
+  <polygon points="68,50 76,42 76,70 68,78" fill="#8f861b"/>
+  <polygon points="22,32 68,32 68,36 22,36" fill="#00e5ff"/>
+  <polygon points="22,80 70,80 70,84 22,84" fill="#ff4fd8"/>
+  <circle cx="30" cy="44" r="3" fill="#fff04a"/>
+  <circle cx="50" cy="48" r="3" fill="#00e5ff"/>
+  <circle cx="64" cy="60" r="3" fill="#ff4fd8"/>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Extrusion Left Side (fill #b0b0b0) -->
+  <polygon points="50,20 30,30 20,37 40,27" fill="#b0b0b0"/>
+  <polygon points="30,30 30,55 20,62 20,37" fill="#b0b0b0"/>
+  <polygon points="30,55 50,80 40,87 20,62" fill="#b0b0b0"/>
+
+  <!-- Extrusion Right Side (fill #808080) -->
+  <polygon points="70,30 50,20 40,27 60,37" fill="#808080"/>
+  <polygon points="70,55 70,30 60,37 60,62" fill="#808080"/>
+  <polygon points="50,80 70,55 60,62 40,87" fill="#808080"/>
+
+  <!-- Front Shield Face - Background White/Light-Grey facets -->
+  <polygon points="50,20 30,30 50,50" fill="#ffffff"/>
+  <polygon points="50,20 70,30 50,50" fill="#e0e0e0"/>
+  <polygon points="30,30 30,55 50,80 50,50" fill="#f2f2f2"/>
+  <polygon points="70,30 70,55 50,80 50,50" fill="#cccccc"/>
+
+  <!-- Front Shield Face - Blue emblem facets -->
+  <polygon points="50,30 38,36 50,50" fill="#42a5f5"/>
+  <polygon points="50,30 62,36 50,50" fill="#1e88e5"/>
+  <polygon points="38,36 38,50 50,66 50,50" fill="#29b6f6"/>
+  <polygon points="62,36 62,50 50,66 50,50" fill="#1976d2"/>
+</svg>

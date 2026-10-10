@@ -4,26 +4,83 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
-  <title>Crossroad Chaos - Real-Time Traffic Control Game for iOS and Android</title>
+  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)">
+  <title>Crossroad Chaos | Traffic Control Game for iOS, Android &amp; Web</title>
+  <link rel="canonical" href="https://theggme.com/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
   <link rel="manifest" href="favicon_io/site.webmanifest">
   <link rel="shortcut icon" href="favicon_io/favicon.ico">
   
-  <meta name="description" content="Crossroad Chaos is a fast-paced traffic control game for iOS, Android, and web. Switch lights, prevent crashes, clear emergency routes, and keep a vibrant low-poly city moving.">
-  <meta name="keywords" content="crossroad chaos, traffic control game, traffic game, low poly, isometric, godot game, ios game, android game, traffic management">
+  <meta name="description" content="Play Crossroad Chaos, a real-time traffic control game for iOS, Android, and web. Switch lights, prevent crashes, clear emergency routes, and keep the city moving.">
   
   <!-- Open Graph -->
-  <meta property="og:title" content="Crossroad Chaos - Keep the City Moving">
-  <meta property="og:description" content="Take command of busy intersections in a stylish real-time traffic control game for iOS, Android, and web.">
-  <meta property="og:image" content="store_photos/creative_assets/apple_header_1_daylight_1024x500.PNG">
+  <meta property="og:title" content="Crossroad Chaos | Keep the City Moving">
+  <meta property="og:description" content="Take command of busy intersections in a real-time traffic control game for iOS, Android, and web.">
+  <meta property="og:url" content="https://theggme.com/">
+  <meta property="og:site_name" content="Crossroad Chaos">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://theggme.com/store_photos/creative_assets/apple_header_1_daylight_1024x500.PNG">
+  <meta property="og:image:secure_url" content="https://theggme.com/store_photos/creative_assets/apple_header_1_daylight_1024x500.PNG">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="500">
+  <meta property="og:image:alt" content="Crossroad Chaos city intersection in daylight">
   <meta property="og:type" content="website">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Crossroad Chaos | Traffic Control Game">
+  <meta name="twitter:description" content="Switch lights, prevent crashes, and keep the city moving on iOS, Android, and web.">
+  <meta name="twitter:image" content="https://theggme.com/store_photos/creative_assets/apple_header_1_daylight_1024x500.PNG">
+  <meta name="twitter:image:alt" content="Crossroad Chaos city intersection in daylight">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Crossroad Chaos",
+          "url": "https://theggme.com/",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "VideoGame",
+          "name": "Crossroad Chaos",
+          "description": "A real-time traffic control game where players switch lights, prevent crashes, and keep busy intersections moving.",
+          "url": "https://theggme.com/",
+          "image": "https://theggme.com/store_photos/creative_assets/apple_header_1_daylight_1024x500.PNG",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "iOS, Android, Web",
+          "gamePlatform": ["iOS", "Android", "Web browser"],
+          "inLanguage": "en",
+          "sameAs": [
+            "https://apps.apple.com/us/app/crossroad-chaos/id6762072095",
+            "https://play.google.com/store/apps/details?id=com.ggme.oroad",
+            "https://kietdv.itch.io/crossroad-chaos"
+          ]
+        }
+      ]
+    }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEV842FX0Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FEV842FX0Z');
+  </script>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&amp;family=Outfit:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
 
   <script>
     // Apply the operating system preference before the page renders.
@@ -1066,6 +1123,12 @@
       margin-bottom: 12px;
     }
 
+    .section-subtitle--feature {
+      white-space: nowrap;
+      font-size: clamp(0.65rem, 2.7vw, 0.9rem);
+      letter-spacing: clamp(0.4px, 0.35vw, 1.5px);
+    }
+
     .section-title {
       font-size: clamp(2rem, 4vw, 3rem);
       line-height: 1.18;
@@ -1102,11 +1165,15 @@
 
     .detail-item {
       display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      gap: 12px;
+      grid-template-columns: max-content minmax(0, 1fr);
+      align-items: baseline;
+      gap: 16px;
     }
 
-    .detail-item span.value { text-align: right; }
+    .detail-item span.value {
+      text-align: right;
+      white-space: nowrap;
+    }
 
     .gallery-carousel-wrapper {
       max-width: var(--page-width);
@@ -1275,14 +1342,17 @@
         gap: 2px;
       }
 
-      .detail-item span.value { text-align: left; }
+      .detail-item span.value {
+        text-align: left;
+        white-space: normal;
+      }
     }
   </style>
 </head>
 <body>
 
   <!-- Navigation Bar -->
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Primary navigation">
     <div class="logo-container">
       <img src="icon_1024.png" class="logo-icon" alt="Crossroad Chaos Logo">
       <span class="logo-text">CROSSROAD CHAOS</span>
@@ -1307,15 +1377,16 @@
     </div>
   </nav>
 
+  <main>
   <!-- Hero Section -->
   <section class="hero" id="hero">
     <!-- Floating Low-Poly Weather / Sky Elements -->
-    <img src="assets/weather/balloon_lowpoly.png" class="floating-bg balloon" alt="Floating Balloon">
-    <img src="assets/weather/balloon_lowpoly_teal.png" class="floating-bg balloon-teal" alt="Teal Floating Balloon">
-    <img src="assets/weather/cloud_lowpoly.png" class="floating-bg cloud-l" alt="Floating Cloud Left">
-    <img src="assets/weather/cloud_lowpoly.png" class="floating-bg cloud-r" alt="Floating Cloud Right">
-    <img src="assets/weather/airplane_lowpoly_red.png" class="floating-bg airplane" alt="Floating Airplane">
-    <img src="assets/weather/seaplane_lowpoly.png" class="floating-bg seaplane" alt="Floating Seaplane">
+    <img src="assets/weather/balloon_lowpoly.png" class="floating-bg balloon" alt="" aria-hidden="true">
+    <img src="assets/weather/balloon_lowpoly_teal.png" class="floating-bg balloon-teal" alt="" aria-hidden="true">
+    <img src="assets/weather/cloud_lowpoly.png" class="floating-bg cloud-l" alt="" aria-hidden="true">
+    <img src="assets/weather/cloud_lowpoly.png" class="floating-bg cloud-r" alt="" aria-hidden="true">
+    <img src="assets/weather/airplane_lowpoly_red.png" class="floating-bg airplane" alt="" aria-hidden="true">
+    <img src="assets/weather/seaplane_lowpoly.png" class="floating-bg seaplane" alt="" aria-hidden="true">
 
     <div class="hero-content">
       <div class="game-badge">
@@ -1377,7 +1448,7 @@
     <img src="assets/weather/birds_lowpoly.png" class="floating-bg birds" alt="Flock of Birds">
 
     <div class="section-title-wrapper">
-      <span class="section-subtitle">Easy to Pick Up, Hard to Put Down</span>
+      <span class="section-subtitle section-subtitle--feature">Easy to Pick Up, Hard to Put Down</span>
       <h2 class="section-title">Take Charge of the Chaos</h2>
     </div>
 
@@ -1473,7 +1544,7 @@
       <div class="gallery-carousel" id="carousel-track">
         <!-- Slide 1 -->
         <div class="carousel-slide">
-          <img src="store_photos/creative_assets/apple_header_1_daylight_1024x500.PNG" alt="Crossroad Chaos city intersection in daylight">
+          <img src="store_photos/creative_assets/apple_header_1_daylight_1024x500.PNG" alt="Crossroad Chaos city intersection in daylight" width="1024" height="500">
           <div class="carousel-overlay">
             <span class="carousel-title">A City Ready to Move</span>
             <span class="carousel-desc">Guide crossing lanes through a colorful low-poly city without letting the gridlock build.</span>
@@ -1481,7 +1552,7 @@
         </div>
         <!-- Slide 2 -->
         <div class="carousel-slide">
-          <img src="store_photos/creative_assets/apple_header_2_night_1024x500.PNG" alt="Crossroad Chaos city intersection at night">
+          <img src="store_photos/creative_assets/apple_header_2_night_1024x500.PNG" alt="Crossroad Chaos city intersection at night" width="1024" height="500" loading="lazy">
           <div class="carousel-overlay">
             <span class="carousel-title">Day Turns Into Night</span>
             <span class="carousel-desc">Watch headlights and glowing signals reshape the road as the pace keeps rising.</span>
@@ -1489,7 +1560,7 @@
         </div>
         <!-- Slide 3 -->
         <div class="carousel-slide">
-          <img src="store_photos/public_new/android_3.PNG" alt="Crossroad Chaos gameplay at a busy nighttime intersection">
+          <img src="store_photos/public_new/android_3.PNG" alt="Crossroad Chaos gameplay at a busy nighttime intersection" width="2560" height="1184" loading="lazy">
           <div class="carousel-overlay">
             <span class="carousel-title">Every Second Counts</span>
             <span class="carousel-desc">React quickly as traffic builds and keep every route moving safely.</span>
@@ -1497,7 +1568,7 @@
         </div>
         <!-- Slide 4 -->
         <div class="carousel-slide">
-          <img src="store_photos/public_new/android_4.PNG" alt="Crossroad Chaos gameplay during a nighttime level">
+          <img src="store_photos/public_new/android_4.PNG" alt="Crossroad Chaos gameplay during a nighttime level" width="2560" height="1184" loading="lazy">
           <div class="carousel-overlay">
             <span class="carousel-title">Own the Night Shift</span>
             <span class="carousel-desc">Read the lights, manage every lane, and keep the city flowing after dark.</span>
@@ -1505,7 +1576,7 @@
         </div>
         <!-- Slide 5 -->
         <div class="carousel-slide">
-          <img src="store_photos/public_new/android_5.PNG" alt="Crossroad Chaos level-selection screen">
+          <img src="store_photos/public_new/android_5.PNG" alt="Crossroad Chaos level-selection screen" width="2560" height="1184" loading="lazy">
           <div class="carousel-overlay">
             <span class="carousel-title">Choose Your Next Challenge</span>
             <span class="carousel-desc">Unlock new intersections and master each route at your own pace.</span>
@@ -1567,12 +1638,12 @@
 
     <div class="rewards-grid">
       <article class="reward-card">
-        <img src="assets/ui/powerup_shield.svg" class="reward-icon" alt="Shield power-up">
+        <img src="assets/weather/powerup_shield.svg" class="reward-icon" alt="Shield power-up">
         <h3>Helpful Power-Ups</h3>
         <p>Unlock tools that help you handle your toughest traffic moments.</p>
       </article>
       <article class="reward-card">
-        <img src="assets/ui/play.svg" class="reward-icon" alt="New map unlock">
+        <img src="assets/weather/play.svg" class="reward-icon" alt="New map unlock">
         <h3>New Maps</h3>
         <p>Open up fresh intersections and find new ways to test your timing.</p>
       </article>
@@ -1582,7 +1653,7 @@
         <p>Bring new weather, music, and city life to every run.</p>
       </article>
       <article class="reward-card">
-        <img src="assets/ui/filter_neon_city.svg" class="reward-icon" alt="Neon city visual style unlock">
+        <img src="assets/weather/filter_neon_city.svg" class="reward-icon" alt="Neon city visual style unlock">
         <h3>Fresh Looks</h3>
         <p>Unlock visual styles that give your city a whole new feel.</p>
       </article>
@@ -1613,6 +1684,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- Footer -->
   <footer>
